@@ -48,11 +48,11 @@ func NewMongoRepository(mongoURL, mongoDB string, mongoTimeout int) (shortener.R
 	return repo, err
 }
 
-func (r *mongoRepository) Find(code string) (shortener.Redirect, error) {
+func (r *mongoRepository) Find(code string) (*shortener.Redirect, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), r.timeout)
 	defer cancel()
 
-	redirect := shortener.Redirect{}
+	redirect := &shortener.Redirect{}
 	collection := r.client.Database(r.database).Collection("redirects")
 	filter := bson.M{"code": code}
 	err := collection.FindOne(ctx, filter).Decode(&redirect)

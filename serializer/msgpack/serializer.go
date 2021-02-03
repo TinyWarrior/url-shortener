@@ -1,4 +1,4 @@
-package webpack
+package msgpack
 
 import (
 	"github.com/TinyWarrior/url-shortener/shortener"
