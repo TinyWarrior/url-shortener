@@ -3,7 +3,7 @@ package json
 import (
 	"encoding/json"
 
-	"../../shortener"
+	"github.com/TinyWarrior/url-shortener/shortener"
 	"github.com/pkg/errors"
 )
 

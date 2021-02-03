@@ -1,7 +1,7 @@
 package webpack
 
 import (
-	"../../shortener"
+	"github.com/TinyWarrior/url-shortener/shortener"
 	"github.com/pkg/errors"
 	"github.com/vmihailenco/msgpack"
 )
