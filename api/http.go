@@ -66,7 +66,9 @@ func (h *handler) Post(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 		return
 	}
+
 	err = h.redirectService.Store(redirect)
+	log.Println(err)
 	if err != nil {
 		if errors.Cause(err) == shortener.ErrRedirectInvalid {
 			http.Error(w, http.StatusText(http.StatusBadRequest), http.StatusBadRequest)

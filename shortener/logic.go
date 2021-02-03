@@ -2,6 +2,7 @@ package shortener
 
 import (
 	"errors"
+	"log"
 	"time"
 
 	errs "github.com/pkg/errors"
@@ -35,5 +36,6 @@ func (r *redirectService) Store(redirect *Redirect) error {
 
 	redirect.Code = shortid.MustGenerate()
 	redirect.CreatedAt = time.Now().UTC().Unix()
+	log.Printf("%v", redirect)
 	return r.redirectRepo.Store(redirect)
 }
