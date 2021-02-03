@@ -26,7 +26,7 @@ func NewMongoClient(mongoURL string, mongoTimeout int) (*mongo.Client, error) {
 		return nil, err
 	}
 
-	err = client.Ping(ctx, readperf.Primary())
+	err = client.Ping(ctx, readpref.Primary())
 	if err != nil {
 		return nil, err
 	}
